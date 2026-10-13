@@ -1,0 +1,671 @@
+<!DOCTYPE html>
+<html lang="sv">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<title>Projekt och utförda jobb – Tomelilla Bygg</title>
+<meta name="description" content="Egna bilder från takbyten, fasadputs, köksrenoveringar, altaner, trappor och markarbeten i Skåne.">
+<meta name="theme-color" content="#DB6E36">
+<link rel="canonical" href="https://tomelillabygg.se/projekt.html">
+<meta property="og:type" content="website">
+<meta property="og:locale" content="sv_SE">
+<meta property="og:site_name" content="Tomelilla Bygg &amp; Lösullsisolering">
+<meta property="og:title" content="Projekt och utförda jobb – Tomelilla Bygg">
+<meta property="og:description" content="Egna bilder från takbyten, fasadputs, köksrenoveringar, altaner, trappor och markarbeten i Skåne.">
+<meta property="og:image" content="https://tomelillabygg.se/wp-content/uploads/2025/11/Skarmbild-2025-11-21-133517.png">
+<link rel="preconnect" href="https://tomelillabygg.se">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Archivo:wght@400;500;600;700&amp;display=swap" media="print" onload="this.media='all'">
+<noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Archivo:wght@400;500;600;700&amp;display=swap"></noscript>
+<style>
+/* DESIGN — Tomelilla Bygg & Lösullsisolering
+   =========================================================================
+   FÖR VEM. Skånska husägare med ett konkret jobb: ett tak som läcker, en vind
+   som ska isoleras, ett kök som ska göras om. De vill veta exakt två saker —
+   gör de här människorna faktiskt det här, och hur når jag dem. Känslan på två
+   sekunder: en riktig byggare med riktiga jobb bakom sig. Inte en broschyr.
+
+   DIAGNOS AV NUVARANDE SAJT. Den gömmer arbetet. Det finns sjutton äkta
+   jobbfoton — ställningar, rivet tak, nylagda golv, en man med spade — men de
+   ligger som små skärmbilder medan stockbilder på snöplogar och ett stockbadrum
+   får ta plats. Texten är generisk ("ett engagemang för excellens") och samma
+   stycke står ordagrant på fem sidor. Räknarna är tomma: "År av erfarenhet"
+   och "% Nöjda kunder" utan siffror. Sidtiteln säger Kävlinge fast företaget
+   heter Tomelilla.
+
+   GREPPET. Vänd på det. Bilderna är argumentet, inte utfyllnaden. Stockbilderna
+   är borta. Varje foto har en bildtext som säger vad som gjordes. Adjektiven är
+   strukna och ersatta med vad arbetet omfattar.
+
+   BILDLÄGET — och varför heron är tvådelad. Jobbfotona är sparade som
+   skärmbilder, max ca 1 150 px breda. De bär fint i ett rutnät, men en av dem
+   uppblåst till 2 560 px helskärm blir grötig. Heron ger därför bilden knappt
+   halva bredden, där 1 148 px räcker. Kommer originalen fram går heron att
+   göra helskärm utan att något annat ändras.
+
+   FÄRG, pixelsamplad ur deras logotyp (2048×1316):
+   --orange #DB6E36  taket i logotypen, 142 016 px
+   --grey   #787878  huskroppen, 57 501 px
+   Orange har 3,34:1 mot vitt och är därför ALDRIG textfärg — den är en yta.
+   Bläck på orange ger 5,42:1. För orange text finns --orange-t #A54D1F, 5,70:1.
+   Bläck #15161A: 18,08:1. Dämpad #55575E: 7,21:1. Kant #8C8C89: 3,37:1.
+
+   TYPSNITT. Archivo. Bred, rak och tung utan att vara hård — den ser ut som
+   skyltningen på en byggarbetsplats snarare än som ett kontor. Tabellsiffror
+   så att mått och telefonnummer står rakt.
+
+   MOTIV — ARBETSORDERN. Sidan är satt som en arbetsbeskrivning: numrerade
+   moment, linjerade rader, bildtexter som noteringar. Rubriker får ett kort
+   orange streck som en avprickad rad. Inga flytande skuggkort.
+
+   RÖRELSE — tre.
+   1. Heron: bilden lägger sig till rätta, scale 1.04→1 över 1,6 s.
+   2. Entrétoning vid skroll, 14 px + opacitet.
+   3. Bildrutnätet tonas in i trappa, så att ögat går vänster till höger.
+   Allt avstängt vid prefers-reduced-motion.
+
+   MEDVETET BORTVALT. Inga stockbilder. Inga tomma räknare. Inga ikonbrickor
+   i rad om tre. Ingen gradient. Inga retoriska frågor utan svar.
+   ========================================================================= */
+
+:root{
+  --paper:#FFFFFF; --paper-2:#F4F4F2; --paper-3:#E9E9E6;
+  --ink:#15161A;          /* 18,08:1 */
+  --mute:#55575E;         /* 7,21:1 */
+  --rule:#E4E4E2; --rule-2:#D5D5D3;
+  --edge:#8C8C89;         /* kontrollkant, 3,37:1 — WCAG 1.4.11 */
+  --orange:#DB6E36;       /* logotypens tak — yta, aldrig text */
+  --orange-d:#C25E2A;
+  --orange-t:#A54D1F;     /* orange text på vitt, 5,70:1 */
+  --grey:#787878;         /* logotypens huskropp */
+  --on-ink:#EDEDEA;       /* 15,41:1 */
+  --on-ink-dim:#A8ABB2;   /* 7,86:1 */
+  --on-ink-or:#E8A074;    /* 8,36:1 */
+  --hair:rgba(237,237,234,.15);
+  --disp:'Archivo',-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,Helvetica,Arial,sans-serif;
+  --sans:var(--disp);
+  --gut:clamp(20px,5vw,72px); --maxw:1320px; --nav:76px;
+  --ease:cubic-bezier(.22,.61,.36,1);
+  --ease-out:cubic-bezier(.16,1,.3,1);
+}
+*,*::before,*::after{box-sizing:border-box}
+html{-webkit-text-size-adjust:100%;scroll-behavior:smooth;background:var(--paper)}
+@media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}}
+body{margin:0;background:var(--paper);color:var(--ink);font-family:var(--sans);font-size:17px;line-height:1.64;
+  -webkit-font-smoothing:antialiased;-moz-osx-font-smoothing:grayscale;overflow-x:hidden}
+/* height:auto krävs — annars vinner img-taggens height-attribut över aspect-ratio. */
+img{display:block;max-width:100%;height:auto}
+a{color:inherit}
+h1,h2,h3,h4{margin:0;font-family:var(--disp);font-weight:600;line-height:1.06;letter-spacing:-.03em}
+p{margin:0}ul,ol{margin:0;padding:0;list-style:none}
+::selection{background:var(--orange);color:var(--ink)}
+:focus-visible{outline:2px solid var(--orange-t);outline-offset:3px;border-radius:2px}
+.num{font-variant-numeric:tabular-nums lining-nums;font-feature-settings:"tnum" 1,"lnum" 1}
+.wrap{max-width:var(--maxw);margin:0 auto;padding-inline:var(--gut)}
+.sec{padding-block:clamp(58px,7.5vw,118px)}
+section[id]{scroll-margin-top:92px}
+.skip{position:absolute;left:-9999px;top:0;background:var(--ink);color:var(--paper);padding:12px 18px;z-index:400;font-weight:600}
+.skip:focus{left:0}
+.sr{position:absolute;width:1px;height:1px;padding:0;margin:-1px;overflow:hidden;clip:rect(0 0 0 0);white-space:nowrap;border:0}
+
+/* ---------- MOTIVET: den avprickade raden ---------- */
+.kic{display:inline-flex;align-items:center;gap:12px;font-size:11.5px;font-weight:700;letter-spacing:.17em;
+  text-transform:uppercase;color:var(--orange-t)}
+.kic::before{content:"";width:22px;height:3px;background:var(--orange);flex:none}
+.on-ink .kic{color:var(--on-ink-or)}
+.on-ink .kic::before{background:var(--orange)}
+
+/* ---------- knappar ---------- */
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:10px;text-decoration:none;
+  font-size:15.5px;font-weight:600;letter-spacing:-.005em;padding:16px 26px;border-radius:2px;
+  border:1px solid transparent;cursor:pointer;min-height:54px;
+  transition:transform .26s var(--ease-out),background .22s,color .22s,border-color .22s}
+.btn:hover{transform:translateY(-2px)}
+.btn svg{flex:none}
+.btn .ar{display:inline-block;transition:transform .3s var(--ease-out)}
+.btn:hover .ar{transform:translateX(5px)}
+.btn-or{background:var(--orange);color:var(--ink)}        /* 5,42:1 */
+.btn-or:hover{background:var(--orange-d)}
+.btn-ink{background:var(--ink);color:var(--paper)}
+.btn-ink:hover{background:#2A2C32}
+.btn-line{border-color:var(--edge);color:var(--ink);background:transparent}
+.btn-line:hover{border-color:var(--ink);background:var(--paper-2)}
+.btn-line-l{border-color:rgba(237,237,234,.5);color:var(--on-ink)}
+.btn-line-l:hover{background:rgba(237,237,234,.1);border-color:var(--on-ink)}
+.btn-lg{padding:19px 32px;min-height:60px;font-size:16.5px}
+
+/* ---------- nav ---------- */
+.nav{position:fixed;inset:0 0 auto 0;z-index:200;height:var(--nav);display:flex;align-items:center;
+  background:var(--paper);transition:box-shadow .35s var(--ease)}
+.nav .wrap{display:flex;align-items:center;gap:18px;width:100%}
+.nav.solid{box-shadow:0 1px 0 var(--rule)}
+/* Logotypfilen (2048x1316) är ett stående lockup: huset på raderna 40–1085
+   och ordmärket på 1155–1270 i full bredd. I navhöjd blir den texten oläslig.
+   Därför beskärs huset ut (x 324–1783, y 40–1085) och namnet sätts med
+   Archivo i stället. Procenttalen är måtten uttryckta mot containerns bredd:
+   2048/1459 = 140,4 %, -324/1459 = -22,21 %, -40/1459 = -2,74 %.
+   Filen har vit botten, så .em bär en vit bricka — osynlig mot vitt papper,
+   avsiktlig mot den mörka foten. */
+.mark{display:inline-flex;align-items:center;margin-right:auto;min-height:48px;text-decoration:none;gap:12px}
+.mark .em{display:block;flex:none;width:clamp(46px,4.6vw,56px);aspect-ratio:1459/1045;overflow:hidden;
+  background:#fff;border-radius:2px}
+.mark .em img{width:140.4%;max-width:none;display:block;margin:-2.74% 0 0 -22.21%}
+.mark b{display:block;white-space:nowrap;font-weight:700;font-size:clamp(15px,1.6vw,19px);letter-spacing:-.022em;line-height:1.05;
+  text-transform:uppercase}
+.mark s{display:block;text-decoration:none;font-size:9.5px;letter-spacing:.14em;text-transform:uppercase;
+  color:var(--mute);margin-top:3px;font-weight:600}
+.foot .mark b{color:var(--on-ink)}
+.foot .mark s{color:var(--on-ink-dim)}
+.menu{display:flex;gap:clamp(14px,1.7vw,26px);align-items:center;white-space:nowrap}
+.menu > a{text-decoration:none;font-size:14.5px;font-weight:500;color:var(--mute);padding:7px 0;min-height:26px;
+  display:inline-flex;align-items:center;position:relative;transition:color .22s}
+.menu > a:hover,.menu > a[aria-current="page"]{color:var(--ink)}
+.menu > a::after{content:"";position:absolute;left:0;right:100%;bottom:1px;height:3px;background:var(--orange);
+  transition:right .3s var(--ease-out)}
+.menu > a:hover::after,.menu > a[aria-current="page"]::after{right:0}
+.navtel{display:inline-flex;align-items:center;gap:9px;background:var(--orange);color:var(--ink);text-decoration:none;
+  font-weight:700;font-size:15px;padding:0 20px;min-height:46px;border-radius:2px;white-space:nowrap;
+  transition:background .22s,transform .26s var(--ease-out)}
+.navtel:hover{background:var(--orange-d);transform:translateY(-1px)}
+.burger{display:none;width:46px;height:46px;align-items:center;justify-content:center;background:none;border:0;
+  color:inherit;cursor:pointer;padding:0}
+.burger i{display:block;width:21px;height:2px;background:currentColor;position:relative}
+.burger i::before,.burger i::after{content:"";position:absolute;left:0;width:21px;height:2px;background:currentColor}
+.burger i::before{top:-6px}.burger i::after{top:6px}
+
+.drawer{position:fixed;inset:0;z-index:300;background:var(--paper);color:var(--ink);display:flex;flex-direction:column;
+  padding:16px var(--gut) 28px;transform:translateY(-100%);transition:transform .42s var(--ease-out);overflow-y:auto}
+.drawer.open{transform:none}
+.drawer-top{display:flex;align-items:center;justify-content:space-between;gap:16px;min-height:48px;margin-bottom:22px}
+.drawer-top .em{width:52px}
+.drawer-top button{background:none;border:1px solid var(--edge);color:var(--ink);font-family:inherit;
+  font-weight:600;font-size:14px;padding:11px 18px;border-radius:2px;cursor:pointer;min-height:44px}
+.drawer nav{display:flex;flex-direction:column;border-top:1px solid var(--rule)}
+.drawer nav a{display:flex;align-items:baseline;gap:16px;text-decoration:none;font-weight:600;
+  font-size:clamp(22px,5.2vw,30px);letter-spacing:-.03em;padding:17px 0;border-bottom:1px solid var(--rule);
+  min-height:60px}
+.drawer nav a em{font-style:normal;font-size:11px;font-weight:700;letter-spacing:.15em;color:var(--orange-t);
+  width:26px;flex:none}
+.drawer-foot{margin-top:auto;padding-top:26px;display:flex;flex-wrap:wrap;gap:10px}
+.drawer-foot .btn{flex:1 1 180px}
+
+/* ---------- hero ----------
+   Startsidan har en helskärmsbild; undersidorna behåller den tvådelade heron
+   med företagets egna foton. Skälet är upplösning: deras bilder är skärmbilder
+   på ca 1 150 px och blir grötiga uppblåsta till helskärm, men är knivskarpa i
+   halv bredd och i rutnätet. Startsidans bild är 6000x4000 och tål helskärm.
+
+   RASTRET. Textzonens ljusaste pixel ligger på 240. Med 82 % bläckraster får
+   vit text 10,10:1 och --on-ink 8,61:1 mot den punkten. Rastret tonar ut åt
+   höger så att takläggarna blir kvar i bild. */
+.hero{position:relative;display:grid;grid-template-columns:minmax(0,1.06fr) minmax(0,.94fr);align-items:stretch;
+  min-height:clamp(560px,86svh,860px);padding-top:var(--nav);background:var(--paper)}
+.hero-copy{display:flex;flex-direction:column;justify-content:center;
+  padding:clamp(30px,4.6vw,62px) clamp(26px,4vw,58px) clamp(34px,4.6vw,62px) var(--gut)}
+.hero h1{font-size:clamp(36px,5vw,70px);line-height:1.02;letter-spacing:-.042em;max-width:15ch;
+  margin-top:clamp(14px,1.7vw,22px)}
+.hero h1 em{font-style:normal;color:var(--orange-t)}
+.hero-sub{font-size:clamp(16.5px,1.3vw,19.5px);max-width:46ch;margin-top:clamp(15px,1.6vw,21px);color:var(--mute)}
+.hero-cta{display:flex;flex-wrap:wrap;gap:12px;margin-top:clamp(22px,2.4vw,32px)}
+.hero-fig{position:relative;overflow:hidden;background:var(--paper-3);min-height:42svh}
+.hero-fig img{width:100%;height:100%;object-fit:cover;object-position:50% 52%;
+  transform:scale(1.04);animation:settle 1.6s var(--ease-out) forwards}
+@keyframes settle{to{transform:scale(1)}}
+.hero-fig::before{content:"";position:absolute;left:0;top:0;bottom:0;width:5px;background:var(--orange);z-index:2}
+.hero-cap{position:absolute;left:0;right:0;bottom:0;z-index:2;padding:34px clamp(16px,1.8vw,24px) 16px;
+  background:linear-gradient(180deg,rgba(21,22,26,0),rgba(21,22,26,.78));color:var(--on-ink);font-size:13px}
+@media(max-width:900px){
+  .hero{grid-template-columns:1fr;min-height:0}
+  .hero-copy{padding:clamp(26px,6vw,44px) var(--gut) 32px}
+  .hero-fig{min-height:52svh}
+  .hero-fig::before{left:0;right:0;top:0;bottom:auto;width:auto;height:5px}
+}
+
+/* ---------- helskärmshero, bara startsidan ---------- */
+.hero.full{display:flex;flex-direction:column;justify-content:flex-end;min-height:100svh;padding-top:var(--nav);
+  background:var(--ink);color:var(--on-ink);overflow:hidden;isolation:isolate}
+.hero.full .bg{position:absolute;inset:0;z-index:0;overflow:hidden}
+.hero.full .bg img{width:100%;height:100%;object-fit:cover;object-position:52% 46%;
+  transform:scale(1.05);animation:settle 2s var(--ease-out) forwards}
+.hero.full .bg::after{content:"";position:absolute;inset:0;background:
+  linear-gradient(96deg,rgba(21,22,26,.86) 0%,rgba(21,22,26,.82) 34%,rgba(21,22,26,.52) 56%,
+                  rgba(21,22,26,.20) 74%,rgba(21,22,26,.06) 100%),
+  linear-gradient(180deg,rgba(21,22,26,.42) 0%,rgba(21,22,26,0) 26%,rgba(21,22,26,0) 60%,rgba(21,22,26,.55) 100%)}
+.hero.full .hero-copy{position:relative;z-index:2;width:100%;max-width:var(--maxw);margin:0 auto;
+  padding:clamp(40px,7vw,92px) var(--gut) clamp(26px,3vw,40px);justify-content:flex-end}
+.hero.full .kic{color:var(--on-ink-or)}
+.hero.full .kic::before{background:var(--orange)}
+.hero.full h1{color:var(--on-ink);font-size:clamp(34px,5.1vw,74px);max-width:17ch;text-wrap:balance}   /* 10,10:1 */
+.hero.full h1 em{color:var(--orange)}
+.hero.full .hero-sub{color:var(--on-ink);max-width:44ch}                              /* 8,61:1 */
+.hero.full .btn-line{border-color:rgba(237,237,234,.52);color:var(--on-ink)}
+.hero.full .btn-line:hover{background:rgba(237,237,234,.12);border-color:var(--on-ink)}
+/* Ortsmärke över rubriken — litet, konkret, säger var de finns. */
+.locator{display:inline-flex;align-items:center;gap:8px;margin-top:14px;font-size:13.5px;color:var(--on-ink);
+  background:rgba(21,22,26,.5);border:1px solid rgba(237,237,234,.22);border-radius:999px;
+  padding:7px 14px;min-height:30px;backdrop-filter:blur(4px);width:fit-content}
+.locator svg{color:var(--orange);flex:none}
+/* Fotobyline i samma rad. */
+.credit{font-size:11.5px;color:rgba(237,237,234,.72);text-decoration:none;min-height:24px;
+  display:inline-flex;align-items:center}
+.credit:hover{color:var(--on-ink)}
+/* Faktaremsan ligger i heron, på en egen mörk list. */
+.hero.full .strip{position:relative;z-index:2;border:0;border-top:1px solid rgba(237,237,234,.18);
+  background:rgba(21,22,26,.9);backdrop-filter:blur(6px);color:var(--on-ink)}
+.hero.full .strip div{border-left-color:rgba(237,237,234,.16)}
+.hero.full .strip div:first-child{padding-left:var(--gut)}
+.hero.full .strip div:last-child{padding-right:var(--gut)}
+.hero.full .strip dt{color:var(--on-ink-or)}
+.hero.full .strip dd{color:var(--on-ink)}
+
+/* Rullningsvinken och fotobylinen delar en egen rad ovanför remsan, så att
+   ingenting kolliderar med knapparna. .hero-cue reserverar höjden. */
+.hero-cue{position:relative;z-index:3;display:flex;align-items:center;justify-content:space-between;gap:16px;
+  padding:0 var(--gut) 14px}
+.scroll{display:inline-flex;align-items:center;gap:10px;font-size:11px;font-weight:700;letter-spacing:.18em;
+  text-transform:uppercase;color:var(--on-ink-or);text-decoration:none;min-height:26px}
+.scroll i{display:block;width:1px;height:24px;background:rgba(237,237,234,.3);position:relative;overflow:hidden}
+.scroll i::after{content:"";position:absolute;left:0;top:0;width:1px;height:9px;background:var(--orange);
+  animation:drop 2.4s var(--ease) infinite}
+@keyframes drop{0%{transform:translateY(-11px)}60%,100%{transform:translateY(26px)}}
+.hero-foot{position:relative;z-index:2}
+@media(max-width:760px){
+  .scroll{display:none}
+  .hero-cue{justify-content:flex-end}
+  /* Smal skärm: texten spänner över hela bredden, så det vågräta rastret
+     räcker inte. Här täcker ett lodrätt raster hela textblocket i stället —
+     .86-.92 över textzonens ljusaste pixel (240) ger vit text över 12:1. */
+  .hero.full .bg::after{background:linear-gradient(180deg,rgba(21,22,26,.52) 0%,
+    rgba(21,22,26,.70) 30%,rgba(21,22,26,.86) 58%,rgba(21,22,26,.92) 100%)}
+  .hero.full .bg img{object-position:58% 44%}
+}
+@media(max-width:620px){.hero.full{min-height:calc(100svh - 58px)}}
+
+/* ---------- faktaremsa ---------- */
+.strip{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));border-top:1px solid var(--rule);
+  border-bottom:1px solid var(--rule);background:var(--paper)}
+@media(max-width:860px){.strip{grid-template-columns:repeat(2,1fr)}}
+@media(max-width:480px){.strip{grid-template-columns:1fr}}
+.strip div{padding:clamp(17px,2.1vw,25px) clamp(16px,2vw,26px);border-left:1px solid var(--rule)}
+.strip div:first-child{border-left:0;padding-left:0}
+@media(max-width:860px){.strip div:nth-child(3){border-left:0;padding-left:0}}
+@media(max-width:480px){.strip div{border-left:0;padding-left:0;border-top:1px solid var(--rule)}
+  .strip div:first-child{border-top:0}}
+.strip dt{font-size:10.5px;font-weight:700;letter-spacing:.19em;text-transform:uppercase;color:var(--orange-t);
+  margin-bottom:8px}
+.strip dd{margin:0;font-size:16.5px;font-weight:500;line-height:1.38;letter-spacing:-.015em}
+
+/* ---------- rubrikblock ---------- */
+.head{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:clamp(20px,4vw,72px);align-items:end;
+  margin-bottom:clamp(32px,4vw,58px)}
+.head h2{font-size:clamp(29px,4vw,54px);letter-spacing:-.038em;max-width:17ch;margin-top:13px}
+.head p{font-size:clamp(16.5px,1.4vw,19px);color:var(--mute);max-width:50ch}
+.on-ink .head p{color:var(--on-ink-dim)}
+@media(max-width:820px){.head{grid-template-columns:1fr;gap:16px;align-items:start}}
+
+/* ---------- tjänsterutnät: delade kanter, inga flytande kort ---------- */
+.grid{display:grid;border:1px solid var(--rule);background:var(--rule)}
+.grid > *{background:var(--paper)}
+.g2{grid-template-columns:repeat(2,1fr);gap:1px}
+/* Udda antal celler lämnar annars en tom grå ruta i hörnet — rutnätets
+   bakgrund lyser igenom. Sista cellen får då spänna över båda kolumnerna. */
+.g2 > :last-child:nth-child(odd){grid-column:1 / -1}
+.g3{grid-template-columns:repeat(3,1fr);gap:1px}
+@media(max-width:1000px){.g3{grid-template-columns:repeat(2,1fr)}}
+@media(max-width:620px){.g3,.g2{grid-template-columns:1fr}}
+.cell{padding:clamp(22px,2.5vw,32px);display:flex;flex-direction:column;gap:10px;position:relative;
+  transition:background .3s var(--ease)}
+a.cell{text-decoration:none}
+a.cell::before{content:"";position:absolute;left:0;top:0;bottom:0;width:4px;background:var(--orange);
+  transform:scaleY(0);transform-origin:top;transition:transform .34s var(--ease-out)}
+a.cell:hover{background:var(--paper-2)}
+a.cell:hover::before{transform:scaleY(1)}
+.cell h3{font-size:clamp(19px,1.9vw,23px);letter-spacing:-.03em}
+.cell p{font-size:15.5px;color:var(--mute);line-height:1.6}
+.cell .go{margin-top:auto;padding-top:14px;font-weight:600;font-size:14.5px;color:var(--orange-t);
+  display:inline-flex;align-items:center;gap:8px;min-height:26px}
+.cell .go .ar{transition:transform .3s var(--ease-out)}
+a.cell:hover .go .ar{transform:translateX(5px)}
+
+/* ---------- jobbfoton ----------
+   Källbilderna är skärmbilder på ca 1 150 px. I tre kolumner blir slotten
+   ca 410 CSS-px, alltså knappt 2,8x — gott om upplösning. Därför rutnät
+   och inte helbredd. */
+.shots{display:grid;grid-template-columns:repeat(3,1fr);gap:clamp(14px,1.6vw,22px)}
+@media(max-width:900px){.shots{grid-template-columns:repeat(2,1fr)}}
+@media(max-width:560px){.shots{grid-template-columns:1fr}}
+.shot{margin:0;display:flex;flex-direction:column}
+.shot .ph{display:block;overflow:hidden;background:var(--paper-3);border-radius:2px}
+.shot img{width:100%;aspect-ratio:4/3;object-fit:cover;transition:transform .7s var(--ease-out)}
+.shot a:hover img{transform:scale(1.035)}
+.shot figcaption{margin-top:11px;font-size:14px;color:var(--mute);line-height:1.5;
+  padding-left:13px;border-left:3px solid var(--orange)}
+.shot.tall img{aspect-ratio:3/4}
+.shot.wide img{aspect-ratio:16/10}
+
+/* ---------- moment, numrerade ---------- */
+.steps{counter-reset:s;display:grid;grid-template-columns:repeat(4,1fr);gap:1px;background:var(--rule);
+  border:1px solid var(--rule)}
+@media(max-width:900px){.steps{grid-template-columns:repeat(2,1fr)}}
+@media(max-width:560px){.steps{grid-template-columns:1fr}}
+.steps li{background:var(--paper);padding:clamp(22px,2.5vw,30px);display:flex;flex-direction:column;gap:9px;
+  counter-increment:s}
+.steps li::before{content:counter(s,decimal-leading-zero);font-weight:700;font-size:13px;letter-spacing:.12em;
+  color:var(--orange-t)}
+.steps h3{font-size:clamp(18px,1.8vw,21px);letter-spacing:-.03em}
+.steps p{font-size:15.5px;color:var(--mute);line-height:1.58}
+
+/* ---------- punktrader ---------- */
+.rows{border-top:1px solid var(--rule)}
+.rows li{display:grid;grid-template-columns:auto 1fr;gap:15px;align-items:baseline;padding:14px 0;
+  border-bottom:1px solid var(--rule);font-size:16.5px;line-height:1.6;color:var(--mute)}
+.rows li::before{content:"";width:13px;height:3px;background:var(--orange);align-self:center;flex:none}
+.rows b{color:var(--ink);font-weight:600}
+.on-ink .rows,.on-ink .rows li{border-color:var(--hair)}
+.on-ink .rows li{color:var(--on-ink-dim)}
+.on-ink .rows b{color:var(--on-ink)}
+
+/* ---------- telefonen, stor ---------- */
+.tel-big{font-size:clamp(28px,3.4vw,46px);font-weight:700;letter-spacing:-.04em;text-decoration:none;
+  display:inline-flex;align-items:center;gap:14px;color:var(--ink);transition:color .22s}
+.tel-big:hover{color:var(--orange-t)}
+.tel-big svg{flex:none;color:var(--orange)}
+.on-ink .tel-big{color:var(--on-ink)}
+.on-ink .tel-big:hover{color:var(--on-ink-or)}
+
+/* ---------- mörkt band ---------- */
+.on-ink{background:var(--ink);color:var(--on-ink)}
+.band{position:relative;overflow:hidden;padding:clamp(56px,7vw,110px) var(--gut);display:grid;place-items:center;
+  text-align:center}
+.band img.bg{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;z-index:0;opacity:.3}
+.band::after{content:"";position:absolute;inset:0;z-index:1;
+  background:linear-gradient(180deg,rgba(21,22,26,.84) 0%,rgba(21,22,26,.72) 50%,rgba(21,22,26,.9) 100%)}
+.band .inner{position:relative;z-index:2;max-width:min(740px,92vw);display:grid;justify-items:center}
+.band h2{font-size:clamp(29px,4vw,52px);letter-spacing:-.038em;line-height:1.07;margin-top:13px}
+.band p{margin-top:15px;font-size:clamp(16px,1.4vw,19px);color:var(--on-ink-dim);max-width:48ch}
+.band .hero-cta{justify-content:center;margin-top:28px}
+
+/* ---------- områden ---------- */
+.areas{display:flex;flex-wrap:wrap;gap:1px;background:var(--rule);border:1px solid var(--rule)}
+.areas span{background:var(--paper);padding:13px 20px;font-size:15.5px;flex:1 0 auto;text-align:center;min-width:132px}
+
+/* ---------- kontakt ---------- */
+.cx{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:clamp(28px,4.4vw,74px);align-items:start}
+@media(max-width:900px){.cx{grid-template-columns:1fr}}
+.cx dl{margin:0;border-top:1px solid var(--rule)}
+.cx .row{display:flex;gap:16px;justify-content:space-between;align-items:baseline;padding:15px 0;
+  border-bottom:1px solid var(--rule)}
+.cx dt{margin:0;flex:none;font-size:11.5px;font-weight:700;letter-spacing:.15em;text-transform:uppercase;color:var(--mute)}
+.cx dd{margin:0;font-size:16.5px;text-align:right}
+.cx dd a{color:var(--orange-t);font-weight:600;text-decoration:none;border-bottom:1px solid currentColor;
+  min-height:24px;display:inline-block;padding-bottom:1px}
+@media(max-width:560px){.cx .row{flex-direction:column;gap:4px}.cx dd{text-align:left}}
+
+/* ---------- footer ---------- */
+.foot{background:var(--ink);color:var(--on-ink-dim);padding-block:clamp(48px,5.6vw,80px) 26px}
+.foot-grid{display:grid;grid-template-columns:minmax(0,1.5fr) repeat(2,minmax(0,1fr));gap:clamp(24px,3vw,54px)}
+@media(max-width:760px){.foot-grid{grid-template-columns:1fr 1fr}}
+@media(max-width:520px){.foot-grid{grid-template-columns:1fr}}
+.foot .mark{margin-bottom:20px;display:inline-flex}
+.foot h4{color:var(--on-ink);font-size:11.5px;letter-spacing:.19em;text-transform:uppercase;font-weight:700;
+  margin-bottom:15px}
+.foot a{color:var(--on-ink-dim);text-decoration:none;min-height:26px;display:inline-flex;align-items:center;
+  transition:color .22s}
+.foot a:hover{color:var(--on-ink)}
+.foot li{padding:3px 0}
+.foot .bio{font-size:15px;line-height:1.68;max-width:38ch}
+.foot-bot{margin-top:clamp(30px,3.6vw,52px);padding-top:22px;border-top:1px solid var(--hair);
+  display:flex;flex-wrap:wrap;gap:10px 28px;justify-content:space-between;font-size:13.5px}
+
+/* ---------- mobil ringremsa ---------- */
+.callbar{position:fixed;left:0;right:0;bottom:0;z-index:150;display:none;gap:1px;background:var(--rule-2);
+  padding-bottom:env(safe-area-inset-bottom)}
+.callbar a{flex:1;display:flex;align-items:center;justify-content:center;gap:9px;min-height:58px;
+  text-decoration:none;font-weight:700;font-size:15.5px}
+.callbar .c1{background:var(--orange);color:var(--ink)}
+.callbar .c2{background:var(--ink);color:var(--paper)}
+
+/* ---------- rörelse ---------- */
+.rv{opacity:0;transform:translateY(14px);transition:opacity .7s var(--ease-out),transform .7s var(--ease-out)}
+.rv.in{opacity:1;transform:none}
+.rv.d1{transition-delay:.08s}.rv.d2{transition-delay:.16s}.rv.d3{transition-delay:.24s}
+.shots .shot{opacity:0;transform:translateY(12px)}
+.shots.in .shot{opacity:1;transform:none;transition:opacity .56s var(--ease-out),transform .56s var(--ease-out)}
+.shots.in .shot:nth-child(1){transition-delay:0s}.shots.in .shot:nth-child(2){transition-delay:.06s}
+.shots.in .shot:nth-child(3){transition-delay:.12s}.shots.in .shot:nth-child(4){transition-delay:.18s}
+.shots.in .shot:nth-child(5){transition-delay:.24s}.shots.in .shot:nth-child(6){transition-delay:.30s}
+@media(prefers-reduced-motion:reduce){
+  .rv{opacity:1;transform:none;transition:none}
+  .shots .shot{opacity:1;transform:none;transition:none}
+  .hero-fig img{animation:none;transform:none}
+  .btn,.menu > a::after,.navtel,.shot img,a.cell::before{transition:none}
+  .btn:hover,.navtel:hover,.shot a:hover img{transform:none}
+}
+
+@media(max-width:1080px){.menu{display:none}.burger{display:flex}}
+@media(max-width:620px){
+  body{font-size:16.5px}
+  .mark s{display:none}
+  .navtel span{display:none}
+  .navtel{padding:0 15px;min-width:48px}
+  .callbar{display:flex}
+  main{padding-bottom:58px}
+  .hero-cta .btn{flex:1 1 100%}
+}
+</style>
+</head>
+<body>
+<a class="skip" href="#main">Hoppa till innehållet</a>
+<header class="nav" id="nav">
+  <div class="wrap">
+    <a class="mark" href="index.html"><span class="em"><img src="https://tomelillabygg.se/wp-content/uploads/2025/11/488906419_122212111136245208_2336653974083066410_n.webp" alt="" width="2048" height="1316" aria-hidden="true"></span><span><b>Tomelilla Bygg</b><s>&amp; Lösullsisolering</s></span><span class="sr">Tomelilla Bygg &amp; Lösullsisolering — till startsidan</span></a>
+    <nav class="menu" aria-label="Huvudmeny"><a href="index.html">Hem</a><a href="bygg.html">Bygg &amp; renovering</a><a href="tak.html">Tak</a><a href="isolering.html">Isolering</a><a href="mur-puts.html">Mur &amp; puts</a><a href="snorojning.html">Snöröjning</a><a href="projekt.html" aria-current="page">Projekt</a><a href="kontakt.html">Kontakt</a></nav>
+    <a class="navtel" href="tel:+46761459233"><svg width="17" height="17" viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="M3.3 1.7 5 1.3l1.6 3.2-1.4 1c.6 1.3 1.6 2.3 2.9 2.9l1-1.4 3.2 1.6-.4 1.7c-.2.7-.8 1.1-1.5 1C5.9 10.6 2.7 7.4 2.3 3.2c-.1-.7.3-1.3 1-1.5Z" fill="currentColor"/></svg><span class="num">076-145 92 33</span></a>
+    <button class="burger" id="burger" aria-label="Öppna meny" aria-expanded="false" aria-controls="drawer"><i></i></button>
+  </div>
+</header>
+
+<div class="drawer" id="drawer" aria-hidden="true">
+  <div class="drawer-top">
+    <span class="mark"><span class="em"><img src="https://tomelillabygg.se/wp-content/uploads/2025/11/488906419_122212111136245208_2336653974083066410_n.webp" alt="" width="2048" height="1316" aria-hidden="true"></span><span><b>Tomelilla Bygg</b><s>&amp; Lösullsisolering</s></span></span>
+    <button id="dclose">Stäng</button>
+  </div>
+  <nav aria-label="Meny"><a href="index.html"><em>01</em>Hem</a><a href="bygg.html"><em>02</em>Bygg &amp; renovering</a><a href="tak.html"><em>03</em>Tak</a><a href="isolering.html"><em>04</em>Isolering</a><a href="mur-puts.html"><em>05</em>Mur &amp; puts</a><a href="snorojning.html"><em>06</em>Snöröjning</a><a href="projekt.html"><em>07</em>Projekt</a><a href="kontakt.html"><em>08</em>Kontakt</a></nav>
+  <div class="drawer-foot">
+    <a class="btn btn-or" href="tel:+46761459233"><svg width="17" height="17" viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="M3.3 1.7 5 1.3l1.6 3.2-1.4 1c.6 1.3 1.6 2.3 2.9 2.9l1-1.4 3.2 1.6-.4 1.7c-.2.7-.8 1.1-1.5 1C5.9 10.6 2.7 7.4 2.3 3.2c-.1-.7.3-1.3 1-1.5Z" fill="currentColor"/></svg> <span class="num">076-145 92 33</span></a>
+    <a class="btn btn-line" href="mailto:tomelillabygg@gmail.com?subject=Offertf%C3%B6rfr%C3%A5gan%20%E2%80%93%20Tomelilla%20Bygg&body=Hej%21%0A%0AJag%20vill%20ha%20en%20offert.%0A%0ADet%20g%C3%A4ller%20%28takbyte%2C%20renovering%2C%20k%C3%B6k%2C%20badrum%2C%20altan%2C%20isolering%2C%20mur%20och%20puts%2C%20sn%C3%B6r%C3%B6jning%2C%20takskottning%29%3A%0AAdress%20och%20postnummer%3A%0AHustyp%20och%20bygg%C3%A5r%3A%0AUngef%C3%A4rlig%20yta%20eller%20omfattning%3A%0A%C3%96nskad%20tidsplan%3A%0A%C3%84r%20ROT-avdrag%20aktuellt%3A%0A%0ANamn%3A%0ATelefon%3A%0A">Begär offert</a>
+  </div>
+</div>
+<main id="main">
+<section class="hero">
+  <div class="hero-copy">
+    <span class="kic">Projekt</span>
+    <h1>Sjutton jobb, <em>inga stockbilder</em>.</h1>
+    <p class="hero-sub">Bilderna nedan är tagna på egna arbetsplatser. Varje bild säger vad som gjordes.</p>
+    <div class="hero-cta">
+      <a class="btn btn-lg btn-or" href="tel:+46761459233"><svg width="17" height="17" viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="M3.3 1.7 5 1.3l1.6 3.2-1.4 1c.6 1.3 1.6 2.3 2.9 2.9l1-1.4 3.2 1.6-.4 1.7c-.2.7-.8 1.1-1.5 1C5.9 10.6 2.7 7.4 2.3 3.2c-.1-.7.3-1.3 1-1.5Z" fill="currentColor"/></svg> Ring 076-145 92 33</a>
+      <a class="btn btn-lg btn-line" href="mailto:tomelillabygg@gmail.com?subject=Offertf%C3%B6rfr%C3%A5gan%20%E2%80%93%20Tomelilla%20Bygg&body=Hej%21%0A%0AJag%20vill%20ha%20en%20offert.%0A%0ADet%20g%C3%A4ller%20%28takbyte%2C%20renovering%2C%20k%C3%B6k%2C%20badrum%2C%20altan%2C%20isolering%2C%20mur%20och%20puts%2C%20sn%C3%B6r%C3%B6jning%2C%20takskottning%29%3A%0AAdress%20och%20postnummer%3A%0AHustyp%20och%20bygg%C3%A5r%3A%0AUngef%C3%A4rlig%20yta%20eller%20omfattning%3A%0A%C3%96nskad%20tidsplan%3A%0A%C3%84r%20ROT-avdrag%20aktuellt%3A%0A%0ANamn%3A%0ATelefon%3A%0A">Begär offert <span class="ar" aria-hidden="true">&rarr;</span></a>
+    </div>
+  </div>
+  <div class="hero-fig">
+    <img src="https://tomelillabygg.se/wp-content/uploads/2025/11/Skarmbild-2025-11-21-133517.png" alt="Taket rivet ned till underlaget." width="1143" height="797" fetchpriority="high" decoding="async">
+    <p class="hero-cap">Taket rivet ned till underlaget.</p>
+  </div>
+</section>
+
+<section class="sec">
+  <div class="wrap">
+    <div class="head">
+      <div class="rv"><span class="kic">Tak</span>
+      <h2>Tak.</h2></div>
+    </div>
+    <div class="shots">
+      <figure class="shot">
+        <a class="ph" href="https://tomelillabygg.se/wp-content/uploads/2025/11/Skarmbild-2025-11-21-111607.png" target="_blank" rel="noopener"><img src="https://tomelillabygg.se/wp-content/uploads/2025/11/Skarmbild-2025-11-21-111607.png" alt="Takbyte på tegelhus. Nytt underlagstak och svarta betongpannor, ställning runt hela huset." width="1148" height="773" loading="lazy" decoding="async"></a>
+        <figcaption>Takbyte på tegelhus. Nytt underlagstak och svarta betongpannor, ställning runt hela huset.</figcaption>
+      </figure>
+      <figure class="shot">
+        <a class="ph" href="https://tomelillabygg.se/wp-content/uploads/2025/11/Skarmbild-2025-11-21-111217.png" target="_blank" rel="noopener"><img src="https://tomelillabygg.se/wp-content/uploads/2025/11/Skarmbild-2025-11-21-111217.png" alt="Samma typ av jobb under arbete — gammalt tak rivet, nytt underlagstak på plats." width="1157" height="704" loading="lazy" decoding="async"></a>
+        <figcaption>Samma typ av jobb under arbete — gammalt tak rivet, nytt underlagstak på plats.</figcaption>
+      </figure>
+      <figure class="shot">
+        <a class="ph" href="https://tomelillabygg.se/wp-content/uploads/2025/11/Skarmbild-2025-11-21-133517.png" target="_blank" rel="noopener"><img src="https://tomelillabygg.se/wp-content/uploads/2025/11/Skarmbild-2025-11-21-133517.png" alt="Taket rivet ned till underlaget. Allt gammalt material sorteras och körs bort." width="1143" height="797" loading="lazy" decoding="async"></a>
+        <figcaption>Taket rivet ned till underlaget. Allt gammalt material sorteras och körs bort.</figcaption>
+      </figure>
+      <figure class="shot">
+        <a class="ph" href="https://tomelillabygg.se/wp-content/uploads/2025/11/Skarmbild-2025-11-21-111728.png" target="_blank" rel="noopener"><img src="https://tomelillabygg.se/wp-content/uploads/2025/11/Skarmbild-2025-11-21-111728.png" alt="Låglutande tak med ny papptäckning." width="1161" height="464" loading="lazy" decoding="async"></a>
+        <figcaption>Låglutande tak med ny papptäckning.</figcaption>
+      </figure>
+      <figure class="shot">
+        <a class="ph" href="https://tomelillabygg.se/wp-content/uploads/2025/11/Skarmbild-2025-11-21-115433.png" target="_blank" rel="noopener"><img src="https://tomelillabygg.se/wp-content/uploads/2025/11/Skarmbild-2025-11-21-115433.png" alt="Nytt tak på uthus. Även mindre byggnader behöver tätt tak." width="904" height="722" loading="lazy" decoding="async"></a>
+        <figcaption>Nytt tak på uthus. Även mindre byggnader behöver tätt tak.</figcaption>
+      </figure>
+    </div>
+  </div>
+</section>
+
+<section class="sec" style="background:var(--paper-2)">
+  <div class="wrap">
+    <div class="head">
+      <div class="rv"><span class="kic">Fasad, mur och mark</span>
+      <h2>Fasad, mur och mark.</h2></div>
+    </div>
+    <div class="shots">
+      <figure class="shot">
+        <a class="ph" href="https://tomelillabygg.se/wp-content/uploads/2025/11/Skarmbild-2025-11-21-130905.png" target="_blank" rel="noopener"><img src="https://tomelillabygg.se/wp-content/uploads/2025/11/Skarmbild-2025-11-21-130905.png" alt="Putsarbete på fasad, ställning rest. Gul puts under pågående arbete." width="660" height="867" loading="lazy" decoding="async"></a>
+        <figcaption>Putsarbete på fasad, ställning rest. Gul puts under pågående arbete.</figcaption>
+      </figure>
+      <figure class="shot">
+        <a class="ph" href="https://tomelillabygg.se/wp-content/uploads/2025/11/Skarmbild-2025-11-21-140123.png" target="_blank" rel="noopener"><img src="https://tomelillabygg.se/wp-content/uploads/2025/11/Skarmbild-2025-11-21-140123.png" alt="Vitt hus med färdig fasad och nytt tak." width="1124" height="722" loading="lazy" decoding="async"></a>
+        <figcaption>Vitt hus med färdig fasad och nytt tak.</figcaption>
+      </figure>
+      <figure class="shot">
+        <a class="ph" href="https://tomelillabygg.se/wp-content/uploads/2025/11/Skarmbild-2025-11-21-140326.png" target="_blank" rel="noopener"><img src="https://tomelillabygg.se/wp-content/uploads/2025/11/Skarmbild-2025-11-21-140326.png" alt="Ny trappa i betong mot tegelfasad." width="632" height="845" loading="lazy" decoding="async"></a>
+        <figcaption>Ny trappa i betong mot tegelfasad.</figcaption>
+      </figure>
+      <figure class="shot">
+        <a class="ph" href="https://tomelillabygg.se/wp-content/uploads/2025/11/Skarmbild-2025-11-21-140255.png" target="_blank" rel="noopener"><img src="https://tomelillabygg.se/wp-content/uploads/2025/11/Skarmbild-2025-11-21-140255.png" alt="Grundarbete med dränering och isolerskivor mot husliv." width="667" height="862" loading="lazy" decoding="async"></a>
+        <figcaption>Grundarbete med dränering och isolerskivor mot husliv.</figcaption>
+      </figure>
+      <figure class="shot">
+        <a class="ph" href="https://tomelillabygg.se/wp-content/uploads/2025/11/Skarmbild-2025-11-21-135800.png" target="_blank" rel="noopener"><img src="https://tomelillabygg.se/wp-content/uploads/2025/11/Skarmbild-2025-11-21-135800.png" alt="Schakt och markarbete intill huset." width="1124" height="723" loading="lazy" decoding="async"></a>
+        <figcaption>Schakt och markarbete intill huset.</figcaption>
+      </figure>
+      <figure class="shot">
+        <a class="ph" href="https://tomelillabygg.se/wp-content/uploads/2025/11/Skarmbild-2025-11-21-115637.png" target="_blank" rel="noopener"><img src="https://tomelillabygg.se/wp-content/uploads/2025/11/Skarmbild-2025-11-21-115637.png" alt="Färdig markyta efter schakt och återställning." width="1091" height="745" loading="lazy" decoding="async"></a>
+        <figcaption>Färdig markyta efter schakt och återställning.</figcaption>
+      </figure>
+    </div>
+  </div>
+</section>
+
+<section class="sec">
+  <div class="wrap">
+    <div class="head">
+      <div class="rv"><span class="kic">Invändigt och nybygge</span>
+      <h2>Invändigt och nybygge.</h2></div>
+    </div>
+    <div class="shots">
+      <figure class="shot">
+        <a class="ph" href="https://tomelillabygg.se/wp-content/uploads/2025/11/Skarmbild-2025-11-21-130403.png" target="_blank" rel="noopener"><img src="https://tomelillabygg.se/wp-content/uploads/2025/11/Skarmbild-2025-11-21-130403.png" alt="Köksmontering. Vita luckor, mörk bänkskiva, diskbänk inkopplad." width="1120" height="777" loading="lazy" decoding="async"></a>
+        <figcaption>Köksmontering. Vita luckor, mörk bänkskiva, diskbänk inkopplad.</figcaption>
+      </figure>
+      <figure class="shot">
+        <a class="ph" href="https://tomelillabygg.se/wp-content/uploads/2025/11/Skarmbild-2025-11-21-130113.png" target="_blank" rel="noopener"><img src="https://tomelillabygg.se/wp-content/uploads/2025/11/Skarmbild-2025-11-21-130113.png" alt="Nylagt golv och färdigmålade väggar efter renovering." width="1119" height="773" loading="lazy" decoding="async"></a>
+        <figcaption>Nylagt golv och färdigmålade väggar efter renovering.</figcaption>
+      </figure>
+      <figure class="shot">
+        <a class="ph" href="https://tomelillabygg.se/wp-content/uploads/2025/11/Skarmbild-2025-11-21-133804.png" target="_blank" rel="noopener"><img src="https://tomelillabygg.se/wp-content/uploads/2025/11/Skarmbild-2025-11-21-133804.png" alt="Golvläggning i ett annat rum i samma projekt." width="1088" height="750" loading="lazy" decoding="async"></a>
+        <figcaption>Golvläggning i ett annat rum i samma projekt.</figcaption>
+      </figure>
+      <figure class="shot">
+        <a class="ph" href="https://tomelillabygg.se/wp-content/uploads/2025/11/Skarmbild-2025-11-21-133656.png" target="_blank" rel="noopener"><img src="https://tomelillabygg.se/wp-content/uploads/2025/11/Skarmbild-2025-11-21-133656.png" alt="Nya fönsterpartier invändigt, smygar klara för listning." width="1149" height="748" loading="lazy" decoding="async"></a>
+        <figcaption>Nya fönsterpartier invändigt, smygar klara för listning.</figcaption>
+      </figure>
+      <figure class="shot">
+        <a class="ph" href="https://tomelillabygg.se/wp-content/uploads/2025/11/Skarmbild-2025-11-24-112552.png" target="_blank" rel="noopener"><img src="https://tomelillabygg.se/wp-content/uploads/2025/11/Skarmbild-2025-11-24-112552.png" alt="Altandäck i trä färdigbyggt mot tegelfasad." width="1130" height="710" loading="lazy" decoding="async"></a>
+        <figcaption>Altandäck i trä färdigbyggt mot tegelfasad.</figcaption>
+      </figure>
+      <figure class="shot">
+        <a class="ph" href="https://tomelillabygg.se/wp-content/uploads/2025/11/Skarmbild-2025-11-21-133617.png" target="_blank" rel="noopener"><img src="https://tomelillabygg.se/wp-content/uploads/2025/11/Skarmbild-2025-11-21-133617.png" alt="Nybyggnation — stomme rest med ställning runt om." width="539" height="404" loading="lazy" decoding="async"></a>
+        <figcaption>Nybyggnation — stomme rest med ställning runt om.</figcaption>
+      </figure>
+    </div>
+  </div>
+</section>
+<section class="band on-ink" aria-label="Vill du ha något liknande gjort?">
+  <img class="bg" src="https://tomelillabygg.se/wp-content/uploads/2025/11/Skarmbild-2025-11-21-111217.png" alt="" width="1157" height="704" loading="lazy" decoding="async">
+  <div class="inner">
+    <span class="kic">Kostnadsfritt platsbesök</span>
+    <h2>Vill du ha något liknande gjort?</h2>
+    <p>Ring eller mejla så bokar vi ett kostnadsfritt platsbesök.</p>
+    <div class="hero-cta">
+      <a class="btn btn-lg btn-or" href="tel:+46761459233"><svg width="17" height="17" viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="M3.3 1.7 5 1.3l1.6 3.2-1.4 1c.6 1.3 1.6 2.3 2.9 2.9l1-1.4 3.2 1.6-.4 1.7c-.2.7-.8 1.1-1.5 1C5.9 10.6 2.7 7.4 2.3 3.2c-.1-.7.3-1.3 1-1.5Z" fill="currentColor"/></svg> Ring 076-145 92 33</a>
+      <a class="btn btn-lg btn-line-l" href="mailto:tomelillabygg@gmail.com?subject=Offertf%C3%B6rfr%C3%A5gan%20%E2%80%93%20Tomelilla%20Bygg&body=Hej%21%0A%0AJag%20vill%20ha%20en%20offert.%0A%0ADet%20g%C3%A4ller%20%28takbyte%2C%20renovering%2C%20k%C3%B6k%2C%20badrum%2C%20altan%2C%20isolering%2C%20mur%20och%20puts%2C%20sn%C3%B6r%C3%B6jning%2C%20takskottning%29%3A%0AAdress%20och%20postnummer%3A%0AHustyp%20och%20bygg%C3%A5r%3A%0AUngef%C3%A4rlig%20yta%20eller%20omfattning%3A%0A%C3%96nskad%20tidsplan%3A%0A%C3%84r%20ROT-avdrag%20aktuellt%3A%0A%0ANamn%3A%0ATelefon%3A%0A"><svg width="16" height="16" viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="M1.5 3.5h13v9h-13v-9Z" stroke="currentColor" stroke-width="1.4"/><path d="m1.8 4 6.2 4.4L14.2 4" stroke="currentColor" stroke-width="1.4"/></svg> Begär offert</a>
+    </div>
+  </div>
+</section>
+</main>
+<footer class="foot">
+  <div class="wrap">
+    <div class="foot-grid">
+      <div>
+        <span class="mark"><span class="em"><img src="https://tomelillabygg.se/wp-content/uploads/2025/11/488906419_122212111136245208_2336653974083066410_n.webp" alt="" width="2048" height="1316" aria-hidden="true"></span><span><b>Tomelilla Bygg</b><s>&amp; Lösullsisolering</s></span></span>
+        <p class="bio">Bygg, renovering, tak, mur och puts samt lösullsisolering åt husägare i Skåne. Du har samma kontaktperson från offert till överlämning.</p>
+      </div>
+      <div>
+        <h4>Tjänster</h4>
+        <ul><li><a href="bygg.html">Bygg &amp; renovering</a></li><li><a href="tak.html">Takbyte &amp; takarbeten</a></li><li><a href="isolering.html">Isolering &amp; lösull</a></li><li><a href="mur-puts.html">Mur &amp; puts</a></li><li><a href="snorojning.html">Snöröjning &amp; takskottning</a></li><li><a href="projekt.html">Projekt</a></li></ul>
+      </div>
+      <div>
+        <h4>Kontakt</h4>
+        <ul>
+          <li><a class="num" href="tel:+46761459233">076-145 92 33</a></li>
+          <li><a href="mailto:tomelillabygg@gmail.com">tomelillabygg@gmail.com</a></li>
+          <li>Sjövallagränd 7 B</li>
+          <li>244 32 Kävlinge</li>
+          <li><a href="https://www.google.com/maps/search/?api=1&query=Sj%C3%B6vallagr%C3%A4nd+7+B%2C+244+32+K%C3%A4vlinge" target="_blank" rel="noopener">Visa på karta</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="foot-bot">
+      <span>© 2026 Tomelilla Bygg &amp; Lösullsisolering</span>
+      <span>Kävlinge · Lund · Tomelilla · Ystad · Simrishamn · Sjöbo</span>
+    </div>
+  </div>
+</footer>
+
+<div class="callbar">
+  <a class="c1" href="tel:+46761459233"><svg width="17" height="17" viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="M3.3 1.7 5 1.3l1.6 3.2-1.4 1c.6 1.3 1.6 2.3 2.9 2.9l1-1.4 3.2 1.6-.4 1.7c-.2.7-.8 1.1-1.5 1C5.9 10.6 2.7 7.4 2.3 3.2c-.1-.7.3-1.3 1-1.5Z" fill="currentColor"/></svg> Ring oss</a>
+  <a class="c2" href="mailto:tomelillabygg@gmail.com?subject=Offertf%C3%B6rfr%C3%A5gan%20%E2%80%93%20Tomelilla%20Bygg&body=Hej%21%0A%0AJag%20vill%20ha%20en%20offert.%0A%0ADet%20g%C3%A4ller%20%28takbyte%2C%20renovering%2C%20k%C3%B6k%2C%20badrum%2C%20altan%2C%20isolering%2C%20mur%20och%20puts%2C%20sn%C3%B6r%C3%B6jning%2C%20takskottning%29%3A%0AAdress%20och%20postnummer%3A%0AHustyp%20och%20bygg%C3%A5r%3A%0AUngef%C3%A4rlig%20yta%20eller%20omfattning%3A%0A%C3%96nskad%20tidsplan%3A%0A%C3%84r%20ROT-avdrag%20aktuellt%3A%0A%0ANamn%3A%0ATelefon%3A%0A"><svg width="16" height="16" viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="M1.5 3.5h13v9h-13v-9Z" stroke="currentColor" stroke-width="1.4"/><path d="m1.8 4 6.2 4.4L14.2 4" stroke="currentColor" stroke-width="1.4"/></svg> Begär offert</a>
+</div>
+
+<script>
+(function(){
+  var nav=document.getElementById('nav');
+  window.addEventListener('scroll',function(){nav.classList.toggle('solid',window.scrollY>12)},{passive:true});
+
+  var b=document.getElementById('burger'),d=document.getElementById('drawer'),c=document.getElementById('dclose');
+  function setOpen(o){
+    d.classList.toggle('open',o);d.setAttribute('aria-hidden',o?'false':'true');
+    b.setAttribute('aria-expanded',o?'true':'false');
+    b.setAttribute('aria-label',o?'Stäng meny':'Öppna meny');
+    document.documentElement.style.overflow=o?'hidden':'';
+    if(o){c.focus()}else{b.focus()}
+  }
+  b.addEventListener('click',function(){setOpen(true)});
+  c.addEventListener('click',function(){setOpen(false)});
+  d.addEventListener('click',function(e){if(e.target.tagName==='A'){setOpen(false)}});
+  document.addEventListener('keydown',function(e){if(e.key==='Escape'&&d.classList.contains('open')){setOpen(false)}});
+
+  var rv=document.querySelectorAll('.rv,.shots');
+  if(!window.matchMedia('(prefers-reduced-motion: reduce)').matches&&'IntersectionObserver' in window){
+    var io=new IntersectionObserver(function(es){
+      es.forEach(function(e){if(e.isIntersecting){e.target.classList.add('in');io.unobserve(e.target)}})
+    },{rootMargin:'0px 0px -8% 0px',threshold:.06});
+    rv.forEach(function(el){io.observe(el)});
+  }else{rv.forEach(function(el){el.classList.add('in')})}
+})();
+</script>
+</body>
+</html>
